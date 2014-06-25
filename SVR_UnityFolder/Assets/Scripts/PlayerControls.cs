@@ -29,7 +29,6 @@ public class PlayerControls : MonoBehaviour
 				xForce -= xMoveScale * Time.deltaTime;
 			if(Input.GetKeyDown(KeyCode.D))
 				xForce += xMoveScale * Time.deltaTime;
-
 			if(Input.GetKeyDown(KeyCode.W))
 				yForce += yMoveScale * Time.deltaTime;
 		}
@@ -41,17 +40,10 @@ public class PlayerControls : MonoBehaviour
 				xForce -= xMoveScale * Time.deltaTime;
 			if(Input.GetKeyDown(KeyCode.RightArrow))
 				xForce += xMoveScale * Time.deltaTime;
-
-
 			if(Input.GetKeyDown(KeyCode.UpArrow))
 				yForce += yMoveScale * Time.deltaTime;
-
-
-
 		}
 
-
-		print(xForce);
 
 		playerRigidbody.AddForce(new Vector3(xForce, yForce, 0));
 

@@ -25,9 +25,9 @@ public class PlayerControls : MonoBehaviour
 
 		if(playerIndex == 0)
 		{
-			if(Input.GetKeyDown(KeyCode.A))
+			if(Input.GetKey(KeyCode.A))
 				xForce -= xMoveScale * Time.deltaTime;
-			if(Input.GetKeyDown(KeyCode.D))
+			if(Input.GetKey(KeyCode.D))
 				xForce += xMoveScale * Time.deltaTime;
 			if(Input.GetKeyDown(KeyCode.W))
 				yForce += yMoveScale * Time.deltaTime;
@@ -36,9 +36,9 @@ public class PlayerControls : MonoBehaviour
 		if(playerIndex == 1)
 		{
 
-			if(Input.GetKeyDown(KeyCode.LeftArrow))
+			if(Input.GetKey(KeyCode.LeftArrow))
 				xForce -= xMoveScale * Time.deltaTime;
-			if(Input.GetKeyDown(KeyCode.RightArrow))
+			if(Input.GetKey(KeyCode.RightArrow))
 				xForce += xMoveScale * Time.deltaTime;
 			if(Input.GetKeyDown(KeyCode.UpArrow))
 				yForce += yMoveScale * Time.deltaTime;

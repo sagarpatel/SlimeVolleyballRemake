@@ -8,6 +8,8 @@ public class PlayerControls : MonoBehaviour
 	public float xMoveScale = 1.0f;
 	public float yMoveScale = 1.0f;
 
+	bool canJump = true;
+
 	Rigidbody2D playerRigidbody;
 
 	// Use this for initialization
@@ -44,8 +46,11 @@ public class PlayerControls : MonoBehaviour
 				yForce += yMoveScale;
 		}
 
+		if(canJump == false)
+			yForce = 0;
 
-		//playerRigidbody.AddForce(new Vector3(xForce, yForce, 0));
+		if(yForce != 0)
+			canJump = false;
 
 		playerRigidbody.AddForce(new Vector3(0, yForce, 0));
 		transform.Translate(new Vector3(xForce * Time.deltaTime , 0, 0), Space.World);
@@ -55,6 +60,7 @@ public class PlayerControls : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
-		print("Touching floor");
+		if(coll.gameObject.tag == "Floor")
+			canJump = true;
 	}
 }

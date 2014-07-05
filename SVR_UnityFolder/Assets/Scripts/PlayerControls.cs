@@ -26,27 +26,35 @@ public class PlayerControls : MonoBehaviour
 		if(playerIndex == 0)
 		{
 			if(Input.GetKey(KeyCode.A))
-				xForce -= xMoveScale * Time.deltaTime;
+				xForce -= xMoveScale;
 			if(Input.GetKey(KeyCode.D))
-				xForce += xMoveScale * Time.deltaTime;
+				xForce += xMoveScale;
 			if(Input.GetKeyDown(KeyCode.W))
-				yForce += yMoveScale * Time.deltaTime;
+				yForce += yMoveScale;
 		}
 		
 		if(playerIndex == 1)
 		{
 
 			if(Input.GetKey(KeyCode.LeftArrow))
-				xForce -= xMoveScale * Time.deltaTime;
+				xForce -= xMoveScale;
 			if(Input.GetKey(KeyCode.RightArrow))
-				xForce += xMoveScale * Time.deltaTime;
+				xForce += xMoveScale;
 			if(Input.GetKeyDown(KeyCode.UpArrow))
-				yForce += yMoveScale * Time.deltaTime;
+				yForce += yMoveScale;
 		}
 
 
-		playerRigidbody.AddForce(new Vector3(xForce, yForce, 0));
+		//playerRigidbody.AddForce(new Vector3(xForce, yForce, 0));
+
+		playerRigidbody.AddForce(new Vector3(0, yForce, 0));
+		transform.Translate(new Vector3(xForce * Time.deltaTime , 0, 0), Space.World);
+
+	}
 
 
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+		print("Touching floor");
 	}
 }

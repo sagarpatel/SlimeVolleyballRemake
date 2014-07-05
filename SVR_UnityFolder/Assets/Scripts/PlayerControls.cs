@@ -52,7 +52,7 @@ public class PlayerControls : MonoBehaviour
 		if(yForce != 0)
 			canJump = false;
 
-		playerRigidbody.AddForce(new Vector3(0, yForce, 0));
+		playerRigidbody.AddForce(new Vector2(0, yForce));
 		transform.Translate(new Vector3(xForce * Time.deltaTime , 0, 0), Space.World);
 
 	}
